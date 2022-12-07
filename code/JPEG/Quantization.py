@@ -2,7 +2,7 @@
 Author: mousechannel mochenghh@gmail.com
 Date: 2022-12-06 15:22:11
 LastEditors: mousechannel mochenghh@gmail.com
-LastEditTime: 2022-12-06 17:52:07
+LastEditTime: 2022-12-07 14:12:36
 FilePath: \数字图像处理2\code\JPEG\Quantization.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
@@ -37,7 +37,14 @@ class Quantization:
     table0 = table_origin
 
     def set_W(self, w):
-        self.table0 = (50 * self.table_origin) / w + 0.5
+        if w < 50:
+            self.table0 = (50 * self.table_origin) / w + 0.5
+        else:
+            self.table0 = (2 - w / 50) * self.table_origin + 0.5
+            # for i in self.table0:
+            #     for j in i:
+            #         j = max(j, 1)
+
     def Get(self):
         return self.table0
 
@@ -70,8 +77,9 @@ class Quantization:
         return temp
 
 
-# test = Quantization()
-# print(test.table0)
+test = Quantization()
+test.set_W(60)
+print(test.table0)
 
 '''
 test = Quantization()

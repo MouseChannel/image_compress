@@ -1,3 +1,11 @@
+'''
+Author: mousechannel mochenghh@gmail.com
+Date: 2022-12-06 12:07:51
+LastEditors: mousechannel mochenghh@gmail.com
+LastEditTime: 2022-12-07 19:24:35
+FilePath: \数字图像处理2\code\dft\dft.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 import cv2 as cv
 
 import numpy as np
@@ -72,19 +80,3 @@ def work3():
 # work1()
 # work2()
 # work3()
-img1 = cv.imread('../cartoon_1.png', 0)
- 
-img2 = cv.imread('../cartoon_1_after_20.jpeg', 0)
-img3 = cv.imread('../cartoon_1_after_40.jpeg', 0)
-img4 = cv.imread('../cartoon_1_after_60.jpeg', 0)
- 
-plt.subplot(221), plt.imshow(img1, cmap='gray')
-
-plt.title('Input Image'), plt.xticks([]), plt.yticks([])
-plt.subplot(222), plt.imshow(img2, cmap='gray')
-plt.title('Quality factor=20'), plt.xticks([]), plt.yticks([])
-plt.subplot(223), plt.imshow(img3, cmap='gray')
-plt.title('Quality factor=40'), plt.xticks([]), plt.yticks([])
-plt.subplot(224), plt.imshow(img4, cmap='gray')
-plt.title('Quality factor=60'), plt.xticks([]), plt.yticks([])
-plt.show()

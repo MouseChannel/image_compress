@@ -120,7 +120,7 @@ def encoding(bs, width, height, name, w):
 
     Y, U, V = DCT.merge(YBlocks, UBlocks, VBlocks, height, width)
     img = RGB2YUV.yuv2rgb(Y, U, V, width, height)
-    temp = '../' + name+'_after_' + str(w) + '.jpeg'
+    temp = './' + name+'_after_' + str(w) + '.jpeg'
     cv2.imwrite(temp, img)
     # cv2.imshow("img after encoding", img)
 
@@ -136,10 +136,11 @@ def work(name, w):
     Quantization.set_W(w)
     print(Quantization.Get())
     
-    temp1 = '../'+name+'.png'
+    temp1 = './'+name+'.png'
+    print(temp1)
     height, width, s = compress(temp1)
     print(height, width)
-    temp = '../' + name+str(w)+'.txt'
+    temp = './' + name+str(w)+'.txt'
     f = open(temp, 'w', encoding='utf-8')
     f.write(s)
     f.close()
@@ -150,10 +151,10 @@ def work(name, w):
     f.close()
 
 
-# work('cartoon_1', 20)
+work('cartoon_1', 20)
 # work('cartoon_1', 40)
 # work('cartoon_1', 60)
 
 # work('noddles', 20)
-work('noddles', 40)
-work('noddles', 60)
+# work('noddles', 40)
+# work('noddles', 60)
